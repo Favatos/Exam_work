@@ -36,9 +36,11 @@ namespace Exam_work
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists("departments.json") == false) return;
-            if (File.Exists("positions.json") == false) return;
-            if (File.Exists("offices.json") == false) return;
+            if (File.Exists("departments.json") == false || File.Exists("positions.json") == false || File.Exists("offices.json") == false)
+            {
+                MessageBox.Show(" You do not have any departments/positions/offices yet. Please add them via the buttons in the main menu", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             AddEditStaff addEdit = new(new Employee());
             if (addEdit.ShowDialog() == true)
             {
@@ -48,9 +50,11 @@ namespace Exam_work
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists("departments.json") == false) return;
-            if (File.Exists("positions.json") == false) return;
-            if (File.Exists("offices.json") == false) return;
+            if (File.Exists("departments.json") == false || File.Exists("positions.json") == false || File.Exists("offices.json") == false)
+            {
+                MessageBox.Show(" You do not have any departments/positions/offices yet. Please add them via the buttons in the main menu", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             if (listView.SelectedItem == null) return;
             AddEditStaff addEdit = new(Employees[listView.SelectedIndex]);
             if (addEdit.ShowDialog() == true)
