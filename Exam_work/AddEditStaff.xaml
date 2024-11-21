@@ -1,0 +1,67 @@
+﻿<Window x:Class="Exam_work.AddEditStaff"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exam_work"
+        mc:Ignorable="d"
+        Title="AddEdit" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock HorizontalAlignment="Center" 
+                   VerticalAlignment="Center">Фамилия</TextBlock>
+        <TextBlock HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                   Grid.Row="1">Имя</TextBlock>
+        <TextBlock HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                   Grid.Row="2">Отчество</TextBlock>
+        <TextBlock HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                   Grid.Row="3">Отдел</TextBlock>
+        <TextBlock HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                   Grid.Row="4">Должность</TextBlock>
+        <TextBlock HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                   Grid.Row="5">Кабинет</TextBlock>
+
+        <TextBox VerticalAlignment="Center" Grid.Column="1" 
+                 Grid.ColumnSpan="3" Text="{Binding FirstName}"/>
+        <TextBox VerticalAlignment="Center" Grid.Column="1" 
+                    Grid.ColumnSpan="3" Grid.Row="1" Text="{Binding Name}"/>
+        <TextBox VerticalAlignment="Center" Grid.Column="1" 
+                   Grid.ColumnSpan="3" Grid.Row="2"
+                 Text="{Binding LastName}"/>
+        <ComboBox VerticalAlignment="Center" Grid.Column="1"
+                  x:Name="comboDepartment"
+                  Grid.ColumnSpan="3" Grid.Row="3" SelectedItem="{Binding Department}"/>
+        <ComboBox VerticalAlignment="Center" Grid.Column="1" SelectedItem="{Binding Post}"
+                    Grid.ColumnSpan="3" Grid.Row="4"
+                  x:Name="comboPost"/>
+        <ComboBox VerticalAlignment="Center" Grid.Column="1" SelectedItem="{Binding Office}"
+                    Grid.ColumnSpan="3" Grid.Row="5"
+                  x:Name="comboOffice"/>
+
+        <Button Grid.Row="7" Grid.ColumnSpan="2"
+                IsDefault="True" Click="ButtonSave_Click">Save</Button>
+        <Button Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2"
+                IsCancel="True" Click="ButtonCancel_Click">Cancel</Button>
+    </Grid>
+</Window>

@@ -1,0 +1,38 @@
+﻿<Window x:Class="Exam_work.AddEditOffices"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exam_work"
+        mc:Ignorable="d"
+        Title="AddEditOffices" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock VerticalAlignment="Center">Office number</TextBlock>
+        <TextBox Grid.Column="1"  Grid.ColumnSpan="3" VerticalAlignment="Center"
+             Text="{Binding Name}"/>
+
+        <TextBlock VerticalAlignment="Center" Grid.Row="1">Department</TextBlock>
+        <ComboBox Grid.Row="1" Grid.Column="1"
+                  Grid.ColumnSpan="3" VerticalAlignment="Center"
+                  x:Name="comboBox" SelectedItem="{Binding Department}"/>
+
+
+        <Button Grid.Row="7" Grid.ColumnSpan="2"
+            IsDefault="True" Click="ButtonSave_Click">Save</Button>
+        <Button Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" 
+            Click="ButtonCancel_Click" IsCancel="True">Cancel</Button>
+    </Grid>
+</Window>
